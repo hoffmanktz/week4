@@ -18,7 +18,7 @@ Once the player has entered his/her name, the program should address him/her by 
 - The penguin should be able to do at least (3) different tricks, each of which costs a different number of PenguinPebbles
 
 */
-
+var sget = require("sget");
 
 
 
@@ -40,6 +40,24 @@ var penguin = function(playerName, penguinName, penguinGender, penguinType) {
 };
 
 // Math game function (earn or lose penguin pebbles)
+
+function ask() {
+    var a = Math.floor(Math.random() * 10) + 1;
+    var b = Math.floor(Math.random() * 10) + 1;
+    console.log("What is the answer? " + a + " + " + b);
+    var userAnswer = sget("Answer: ").trim();
+    var sum = a + b;
+    
+    	if (userAnswer == sum) {
+    		console.log("Correct! You get 5 Penguin Pebbles!");
+    		// this.addPebbles(5);
+    	} else if (userAnswer !== sum) {
+    		console.log("Incorrect! You lose 5 Penguin Pebbles!");
+    	}
+    // returnToMain();
+ 
+
+}
 
 // Penguin trick 1
 
@@ -86,3 +104,5 @@ var sleep = function(milliseconds) {
 };
 
 //-------------------------------------------------------
+
+ask();
