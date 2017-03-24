@@ -21,6 +21,7 @@ Once the player has entered his/her name, the program should address him/her by 
 var sget = require("sget");
 var playerName;
 var penguinName;
+var PenguinPebbles = 0;
 var penguinArray = [];
 
 // Main menu
@@ -51,7 +52,7 @@ var printMenu = function() {
 // Print Main menu
 var printTricksMenu = function() {
     for (var key in tricksMenu) {
-      console.log(printTricksMenu[key]);
+      console.log(tricksMenu[key]);
     }
 };
 
@@ -119,17 +120,23 @@ var tricks = function() {
 // Penguin trick 1
 
 var jump = function() {
-
+	console.log("You've made " + penguinName + " compete in the long jump and he jumped 20 feet!");
+	returnToMain();
+	penguinPop();
 };
 
 // Penguin trick 2
 var fish = function() {
-
+	console.log("You've made " + penguinName + " fish with a fishing pole. You do know how penguins work, don't you?");
+	returnToMain();
+	penguinPop();
 };
 
 // Penguin trick 3
 var guitar = function() {
-
+	console.log("You've made " + penguinName + " serenade you with a guitar. A penguin of many talents.");
+	returnToMain();
+	penguinPop();
 };
 
 // view penguin pebbles balance
@@ -175,11 +182,11 @@ var penguinPopIntro = function() {
 	sleep(400);
 	wipeScreen();
 	console.log("Welcome to Penguin Pop! Start by adding your penguin!\n");
-	var playerName = sget("What is your name?\n").trim();
-    var penguinName = sget("What is your penguin's name?\n").trim();
-    var penguinGender = sget("Is your penguin a male or female? (male/female)\n").trim();
-    var penguinType = sget("What kind of penguin is " + penguinName + " (Emperor, Gentoo, or Rockhopper)?\n").trim();
-    var newPenguin = new penguin(playerName, penguinName, penguinGender, penguinType);
+	playerName = sget("What is your name?\n").trim();
+    penguinName = sget("What is your penguin's name?\n").trim();
+    penguinGender = sget("Is your penguin a male or female? (male/female)\n").trim();
+    penguinType = sget("What kind of penguin is " + penguinName + " (Emperor, Gentoo, or Rockhopper)?\n").trim();
+    newPenguin = new penguin(playerName, penguinName, penguinGender, penguinType);
     penguinArray.push(newPenguin);
 	penguinPop();
 };
