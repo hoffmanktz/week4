@@ -21,7 +21,7 @@ Once the player has entered his/her name, the program should address him/her by 
 var sget = require("sget");
 var playerName;
 var penguinName;
-var PenguinPebbles = 0;
+var penguinPebblesBalance = 0;
 var penguinArray = [];
 
 // Main menu
@@ -63,14 +63,14 @@ var penguin = function(playerName, penguinName, penguinGender, penguinType) {
     this.penguinGender = penguinGender;
     this.penguinType = penguinType;
     this.penguinPebbles = 0;
-    	this.addPebbles = function() {
-    		this.penguinPebbles++;
-        	console.log(this.penguinName+ " now has "  + this.penguinPebbles + " Penguin Pebbles.");
-    	};
-    	this.minusPebbles = function() {
-    		this.penguinPebbles--;
-    		console.log(this.penguinName+ " now has " + this.penguinPebbles + " Penguin Pebbles.");
-    	};
+    	// this.addPebbles = function() {
+    	// 	this.penguinPebbles++;
+     //    	console.log(this.penguinName+ " now has "  + this.penguinPebbles + " Penguin Pebbles.");
+    	// };
+    	// this.minusPebbles = function() {
+    	// 	this.penguinPebbles--;
+    	// 	console.log(this.penguinName+ " now has " + this.penguinPebbles + " Penguin Pebbles.");
+    	// };
 };
 
 
@@ -84,9 +84,10 @@ function ask() {
     
     	if (userAnswer == sum) {
     		console.log("Correct! You get 5 Penguin Pebbles!");
-    		// penguin.addPebbles(5);
+    		penguinPebblesBalance = penguinPebblesBalance + 5;
     	} else if (userAnswer !== sum) {
     		console.log("Incorrect! You lose 5 Penguin Pebbles!");
+    		penguinPebblesBalance = penguinPebblesBalance - 5;
     	}
     returnToMain();
     penguinPop();
@@ -121,6 +122,7 @@ var tricks = function() {
 
 var jump = function() {
 	console.log("You've made " + penguinName + " compete in the long jump and he jumped 20 feet!");
+	penguinPebblesBalance = penguinPebblesBalance - 20;
 	returnToMain();
 	penguinPop();
 };
@@ -128,6 +130,7 @@ var jump = function() {
 // Penguin trick 2
 var fish = function() {
 	console.log("You've made " + penguinName + " fish with a fishing pole. You do know how penguins work, don't you?");
+	penguinPebblesBalance = penguinPebblesBalance - 20;
 	returnToMain();
 	penguinPop();
 };
@@ -135,6 +138,7 @@ var fish = function() {
 // Penguin trick 3
 var guitar = function() {
 	console.log("You've made " + penguinName + " serenade you with a guitar. A penguin of many talents.");
+	penguinPebblesBalance = penguinPebblesBalance - 20;
 	returnToMain();
 	penguinPop();
 };
@@ -142,7 +146,9 @@ var guitar = function() {
 // view penguin pebbles balance
 
 var view = function() {
-	console.log(this.penguinPebbles);
+	console.log(penguinPebblesBalance);
+	returnToMain();
+	penguinPop();
 };
 
 
