@@ -123,6 +123,7 @@ var tricks = function() {
 var jump = function() {
 	console.log("You've made " + penguinName + " compete in the long jump and he jumped 20 feet!");
 	penguinPebblesBalance = penguinPebblesBalance - 20;
+	console.log("You now have " + penguinPebblesBalance + " Penguin Pebbles!");
 	returnToMain();
 	penguinPop();
 };
@@ -130,7 +131,8 @@ var jump = function() {
 // Penguin trick 2
 var fish = function() {
 	console.log("You've made " + penguinName + " fish with a fishing pole. You do know how penguins work, don't you?");
-	penguinPebblesBalance = penguinPebblesBalance - 20;
+	penguinPebblesBalance = penguinPebblesBalance - 15;
+	console.log("You now have " + penguinPebblesBalance + " Penguin Pebbles!");
 	returnToMain();
 	penguinPop();
 };
@@ -138,7 +140,8 @@ var fish = function() {
 // Penguin trick 3
 var guitar = function() {
 	console.log("You've made " + penguinName + " serenade you with a guitar. A penguin of many talents.");
-	penguinPebblesBalance = penguinPebblesBalance - 20;
+	penguinPebblesBalance = penguinPebblesBalance - 10;
+	console.log("You now have " + penguinPebblesBalance + " Penguin Pebbles!");
 	returnToMain();
 	penguinPop();
 };
@@ -146,7 +149,7 @@ var guitar = function() {
 // view penguin pebbles balance
 
 var view = function() {
-	console.log(penguinPebblesBalance);
+	console.log("You have " + penguinPebblesBalance + " Penguin Pebbles!");
 	returnToMain();
 	penguinPop();
 };
