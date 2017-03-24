@@ -19,8 +19,41 @@ Once the player has entered his/her name, the program should address him/her by 
 
 */
 var sget = require("sget");
+var playerName;
+var penguinName;
+var penguinArray = [];
+
+// Main menu
+var mainMenu = {
+	welcome: "Let's play Penguin Pop!\n\n",
+	math: "1. Earn Penguin Pebbles by solving really easy math problems",
+	tricks: "2. Teach your Penguin a new trick",
+	view: "3. View your Penguin Pebbles Balance",
+	exit: "4. Exit Penguin Pop"
+};
+
+var tricksMenu = {
+	welcome: "Make your penguin do a trick!\n\n",
+	jump: "1. Have your penguin compete in the long jump",
+	fish: "2. Have your penguin catch a fish with a fishing pole",
+	guitar: "3. Have your penguin play you a song on the guitar",
+	back: "4. Back to the main menu"
+ };
 
 
+// Print Main menu
+var printMenu = function() {
+    for (var key in mainMenu) {
+      console.log(mainMenu[key]);
+    }
+};
+
+// Print Main menu
+var printTricksMenu = function() {
+    for (var key in tricksMenu) {
+      console.log(printTricksMenu[key]);
+    }
+};
 
 // Add penguin constructor (player name, penguin name, gender, pengiun type, penguin pebbles)
 var penguin = function(playerName, penguinName, penguinGender, penguinType) {
@@ -39,8 +72,8 @@ var penguin = function(playerName, penguinName, penguinGender, penguinType) {
     	};
 };
 
-// Math game function (earn or lose penguin pebbles)
 
+// Math game function (earn or lose penguin pebbles)
 function ask() {
     var a = Math.floor(Math.random() * 10) + 1;
     var b = Math.floor(Math.random() * 10) + 1;
@@ -50,27 +83,60 @@ function ask() {
     
     	if (userAnswer == sum) {
     		console.log("Correct! You get 5 Penguin Pebbles!");
-    		// this.addPebbles(5);
+    		// penguin.addPebbles(5);
     	} else if (userAnswer !== sum) {
     		console.log("Incorrect! You lose 5 Penguin Pebbles!");
     	}
-    // returnToMain();
+    returnToMain();
+    penguinPop();
  
 
 }
 
+// Penguin trick function
+
+var tricks = function() {
+	sleep(400);
+	wipeScreen();
+	printTricksMenu();
+	var userSelect = sget("What would you like to do?\n").trim();
+	userSelect = userSelect.toLowerCase();
+
+		if(userSelect == 1) {
+        	jump();
+        } else if(userSelect == 2) {
+        	fish();
+        } else if(userSelect == 3) {
+        	guitar();
+        } else if(userSelect == 4) {
+        	penguinPop();
+        } else {
+            console.log("Invalid Selection. Please try again.");
+           	tricks();
+        }
+};
+
 // Penguin trick 1
 
+var jump = function() {
+
+};
+
 // Penguin trick 2
+var fish = function() {
+
+};
 
 // Penguin trick 3
+var guitar = function() {
+
+};
 
 // view penguin pebbles balance
 
-
-
-
-
+var view = function() {
+	console.log(this.penguinPebbles);
+};
 
 
 
@@ -105,4 +171,42 @@ var sleep = function(milliseconds) {
 
 //-------------------------------------------------------
 
-ask();
+var penguinPopIntro = function() {
+	sleep(400);
+	wipeScreen();
+	console.log("Welcome to Penguin Pop! Start by adding your penguin!\n");
+	var playerName = sget("What is your name?\n").trim();
+    var penguinName = sget("What is your penguin's name?\n").trim();
+    var penguinGender = sget("Is your penguin a male or female? (male/female)\n").trim();
+    var penguinType = sget("What kind of penguin is " + penguinName + " (Emperor, Gentoo, or Rockhopper)?\n").trim();
+    var newPenguin = new penguin(playerName, penguinName, penguinGender, penguinType);
+    penguinArray.push(newPenguin);
+	penguinPop();
+};
+
+
+var penguinPop = function() {
+	sleep(400);
+	wipeScreen();
+	printMenu();
+	var userSelect = sget("What would you like to do?\n").trim();
+	userSelect = userSelect.toLowerCase();
+
+		if(userSelect == 1) {
+        	ask();
+        } else if(userSelect == 2) {
+        	tricks();
+        } else if(userSelect == 3) {
+        	view();
+        } else if(userSelect == 4) {
+            exit();
+        } else {
+            console.log("Invalid Selection. Please try again.");
+           
+        }
+};
+
+
+
+
+penguinPopIntro();
