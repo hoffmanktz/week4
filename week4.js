@@ -23,6 +23,21 @@ Once the player has entered his/her name, the program should address him/her by 
 
 
 // Add penguin constructor (player name, penguin name, gender, pengiun type, penguin pebbles)
+var penguin = function(playerName, penguinName, penguinGender, penguinType) {
+    this.playerName = playerName;
+    this.penguinName = penguinName;
+    this.penguinGender = penguinGender;
+    this.penguinType = penguinType;
+    this.penguinPebbles = 0;
+    	this.addPebbles = function() {
+    		this.penguinPebbles++;
+        	console.log(this.penguinName+ " now has "  + this.penguinPebbles + " Penguin Pebbles.");
+    	};
+    	this.minusPebbles = function() {
+    		this.penguinPebbles--;
+    		console.log(this.penguinName+ " now has " + this.penguinPebbles + " Penguin Pebbles.");
+    	};
+};
 
 // Math game function (earn or lose penguin pebbles)
 
