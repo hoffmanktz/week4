@@ -43,6 +43,13 @@ Once the player has entered his/her name, the program should address him/her by 
 
 //----------------HELPFUL TOOLS---------------------------
 
+// Exit Program function
+var exit = function () {
+	console.log("Goodbye!");
+	sleep(800);
+	process.exit();
+};
+
 // Return to main menu prompt function
 var returnToMain = function () {
 	var returnToMain = sget("\nPress enter to return to main menu..").trim();
