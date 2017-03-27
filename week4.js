@@ -121,29 +121,50 @@ var tricks = function() {
 // Penguin trick 1
 
 var jump = function() {
-	console.log("You've made " + penguinName + " compete in the long jump and he jumped 20 feet!");
-	penguinPebblesBalance = penguinPebblesBalance - 20;
-	console.log("You now have " + penguinPebblesBalance + " Penguin Pebbles!");
-	returnToMain();
-	penguinPop();
+	if(penguinPebblesBalance >= 20) {
+		console.log("You've made " + penguinName + " compete in the long jump and " + penguinName + " jumped 20 feet!");
+		penguinPebblesBalance = penguinPebblesBalance - 20;
+		console.log("You now have " + penguinPebblesBalance + " Penguin Pebbles!");
+		returnToMain();
+		penguinPop();
+	} else {
+		console.log("You don't have enough Penguin Pebbles for this! You have " + penguinPebblesBalance + " Penguin Pebbles.\nPlay some math games to earn some!");
+		returnToMain();
+		printMenu();
+
+	}	
 };
 
 // Penguin trick 2
 var fish = function() {
-	console.log("You've made " + penguinName + " fish with a fishing pole. You do know how penguins work, don't you?");
-	penguinPebblesBalance = penguinPebblesBalance - 15;
-	console.log("You now have " + penguinPebblesBalance + " Penguin Pebbles!");
-	returnToMain();
-	penguinPop();
+	if(penguinPebblesBalance >= 20) {
+		console.log("You've made " + penguinName + " fish with a fishing pole. You do know how penguins work, don't you?");
+		penguinPebblesBalance = penguinPebblesBalance - 15;
+		console.log("You now have " + penguinPebblesBalance + " Penguin Pebbles!");
+		returnToMain();
+		penguinPop();
+	} else {
+		console.log("You don't have enough Penguin Pebbles for this! You have " + penguinPebblesBalance + " Penguin Pebbles.\nPlay some math games to earn some!");
+		returnToMain();
+		printMenu();
+
+	}
 };
 
 // Penguin trick 3
 var guitar = function() {
-	console.log("You've made " + penguinName + " serenade you with a guitar. A penguin of many talents.");
-	penguinPebblesBalance = penguinPebblesBalance - 10;
-	console.log("You now have " + penguinPebblesBalance + " Penguin Pebbles!");
-	returnToMain();
-	penguinPop();
+	if(penguinPebblesBalance >= 20) {
+		console.log("You've made " + penguinName + " serenade you with a guitar. A penguin of many talents.");
+		penguinPebblesBalance = penguinPebblesBalance - 10;
+		console.log("You now have " + penguinPebblesBalance + " Penguin Pebbles!");
+		returnToMain();
+		penguinPop();
+	} else {
+		console.log("You don't have enough Penguin Pebbles for this! You have " + penguinPebblesBalance + " Penguin Pebbles.\nPlay some math games to earn some!");
+		returnToMain();
+		printMenu();
+
+	}
 };
 
 // view penguin pebbles balance
