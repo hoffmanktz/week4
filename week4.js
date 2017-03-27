@@ -134,7 +134,7 @@ var jump = function() {
 	} else {
 		console.log("You don't have enough Penguin Pebbles for this! You have " + penguinPebblesBalance + " Penguin Pebbles.\nPlay some math games to earn some!");
 		returnToMain();
-		printMenu();
+		penguinPop();
 
 	}	
 };
@@ -150,7 +150,7 @@ var fish = function() {
 	} else {
 		console.log("You don't have enough Penguin Pebbles for this! You have " + penguinPebblesBalance + " Penguin Pebbles.\nPlay some math games to earn some!");
 		returnToMain();
-		printMenu();
+		penguinPop();
 
 	}
 };
@@ -166,7 +166,7 @@ var guitar = function() {
 	} else {
 		console.log("You don't have enough Penguin Pebbles for this! You have " + penguinPebblesBalance + " Penguin Pebbles.\nPlay some math games to earn some!");
 		returnToMain();
-		printMenu();
+		penguinPop();
 
 	}
 };
@@ -265,8 +265,8 @@ var penguinPop = function() {
         } else if(userSelect == 4) {
             exit();
         } else {
-            console.log("Invalid Selection. Please try again.");
-           
+           console.log("Invalid Selection. Please try again.");
+           penguinPop();
         }
 };
 
