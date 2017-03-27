@@ -80,6 +80,10 @@ function ask() {
     var b = Math.floor(Math.random() * 10) + 1;
     console.log("What is the answer? " + a + " + " + b);
     var userAnswer = sget("Answer: ").trim();
+    	if (isNaN(userAnswer)) {
+    		console.log("Your answer must be a number.");
+    		ask();
+    	}
     var sum = a + b;
     
     	if (userAnswer == sum) {
@@ -88,7 +92,7 @@ function ask() {
     	} else if (userAnswer !== sum) {
     		console.log("Incorrect! You lose 5 Penguin Pebbles!");
     		penguinPebblesBalance = penguinPebblesBalance - 5;
-    	}
+    	} 
     returnToMain();
     penguinPop();
  
