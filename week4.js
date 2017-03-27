@@ -214,8 +214,31 @@ var penguinPopIntro = function() {
 	console.log("Welcome to Penguin Pop! Start by adding your penguin!\n");
 	playerName = sget("What is your name?\n").trim();
     penguinName = sget("What is your penguin's name?\n").trim();
+
+    var pickGender = function() {
     penguinGender = sget("Is your penguin a male or female? (male/female)\n").trim();
+    penguinGender = penguinGender.toLowerCase();
+
+    	if (penguinGender !== "female" && penguinGender !== "male") {
+    		console.log("I know it's 2017, but you have to pick a gender for your penguin.");
+    		sleep(1400);
+    		pickGender();
+    	}
+    };
+    pickGender();
+
+    var pickPenguinType = function () {
     penguinType = sget("What kind of penguin is " + penguinName + " (Emperor, Gentoo, or Rockhopper)?\n").trim();
+    penguinType = penguinType.toLowerCase();
+
+    	if (penguinType != "emperor" && penguinType != "gentoo" && penguinType != "rockhopper") {
+    		console.log("In these parts, there are only three kinds of penguins. Pick one of them.");
+    		sleep(1400);
+    		pickPenguinType();
+    	}
+    };
+    pickPenguinType();
+
     newPenguin = new penguin(playerName, penguinName, penguinGender, penguinType);
     penguinArray.push(newPenguin);
 	penguinPop();
